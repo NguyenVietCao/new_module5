@@ -1,0 +1,16 @@
+import logo from './logo.svg';
+import './App.css';
+import Blog from './component/Blog';
+import {posts} from './data/data'
+
+function App() {
+  return (
+   <>
+   <Blog list= {posts}>
+
+   </Blog>
+   </>
+  );
+}
+
+export default App;
