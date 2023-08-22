@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Blog from './component/Blog';
 import {posts} from './data/data'
+import Form from './component/Form';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
    <Blog list= {posts}>
 
    </Blog>
+      {/* <Form></Form> */}
    </>
   );
 }
