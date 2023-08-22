@@ -8,7 +8,7 @@ function App() {
   return (
    <>
       <Blog list={posts}></Blog>
-      <Form></Form>
+     
    </>
   );
 }

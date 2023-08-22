@@ -2,29 +2,34 @@
 import React, { Component } from "react";
 import { posts } from "../data/data";
 class Form extends React.Component {
-    constructor() {
+    constructor(props) {
         super()
         this.state = {
+            list: props.list,
             title: "",
             slug: "",
             category: "",
-            updatedAt: ""
+            updatedAt: "",
         }
     }
 
 
     onChange = event => {
-        const { value, name } = event.target
 
-        this.setState({
-            [name]: value
-        })
-
+        this.setState(prev => ({ ...prev, [event.target.name]: event.target.value }))
 
     }
-    AddBlog() {
-        posts.push({ title: this.state.title, slug: this.state.slug, category: this.state.category, updatedAt: this.state.updatedAt })
-        console.log(posts);
+    addBlog() {
+        console.log(JSON.stringify(this.state));
+
+        this.props.func((prev) => {
+            console.log(JSON.stringify(prev.listPosts))
+
+            const newEl = { id: Math.floor(Math.random() * 100) + 1, title: this.state.title, slug: this.state.slug, category: this.state.category, updatedAt: this.state.updatedAt }
+         
+            return { ...prev, listPosts: [...prev.listPosts, newEl] }
+        })
+
     }
 
     render() {
@@ -58,7 +63,7 @@ class Form extends React.Component {
 
 
 
-                    <button type="button" onClick={() => this.AddBlog()}>Submit</button>
+                    <button type="button" onClick={() => this.addBlog()}>Submit</button>
                 </form>
 
             </>

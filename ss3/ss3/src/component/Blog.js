@@ -1,15 +1,17 @@
 import React from 'react';
 import { posts } from '../data/data';
+import Form from './Form';
 
 class Blog extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            title: "",
-            slug: "",
-            category: "",
-            updatedAt: ""
+           
+            listPosts: [...posts]
+
         }
+        this.setState = this.setState.bind(this);
+
     }
     onChange = event => {
         const { value, name } = event.target
@@ -52,7 +54,7 @@ class Blog extends React.Component {
                     <tbody>
                         {this.props.list.map((el, index) => {
                             return (
-                                <tr>
+                                <tr key={el.id}>
                                     {/* <td>{index+1}</td> */}
                                     <td>{el.id}</td>
                                     <td>{el.title}</td>
@@ -68,6 +70,7 @@ class Blog extends React.Component {
 
                     </tbody>
                 </table>
+                <Form func={this.setState} list={this.state.listPosts}></Form>
             </>
         )
     }
