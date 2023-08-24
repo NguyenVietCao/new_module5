@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function GreetingF(props) {
     const [firstName, setFirstName] = useState();
@@ -11,6 +11,9 @@ function GreetingF(props) {
     const handlelastNameChange = (event) => {
         setLastName(event)
     }
+
+    useEffect(() => { handleFirstNameChange() }, [firstName])
+    useEffect(() => { handlelastNameChange() }, [lastName])
     return (
         <div>
             <input value={firstName} onChange={(event) => handleFirstNameChange(event.target.value)} />
