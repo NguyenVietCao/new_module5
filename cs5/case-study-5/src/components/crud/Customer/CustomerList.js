@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import{Link}from 'react-router-dom';
-import { getListCustomer } from '../service/ServiceSever';
+import { getListCustomer } from '../../service/ServiceSever';
+
 
 function CustomerList(props) {
-  const [customer,setCustomer] = useState([]);
+  const [customer, setCustomer] = useState([]);
+  
+
 
   const showListCustomer = async() => {
     const data = await getListCustomer();

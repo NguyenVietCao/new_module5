@@ -11,7 +11,7 @@ function CreateService() {
     await addService(value);
   };
 
-  const getListServiceNames = async () => {
+
 
   const getListServiceNames = async () => {
     const options = await getListServiceName();
@@ -202,4 +202,4 @@ function CreateService() {
   );
 }
 
-export default CreateService;
+  export default CreateService;

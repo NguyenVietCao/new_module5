@@ -1,0 +1,58 @@
+{
+  "services": [
+    {
+      "id": 2,
+      "serviceName": "Villa",
+      "usableArea": "120",
+      "rentalFee": "2000",
+      "quantity": "12",
+      "rentalType": "Month"
+    },
+    {
+      "id": 5,
+      "serviceName": "House",
+      "usableArea": "120",
+      "rentalFee": "12000",
+      "quantity": "6",
+      "rentalType": "month"
+    },
+    {
+      "serviceName": "House",
+      "usableArea": "200",
+      "rentalFee": "1200",
+      "quantity": "6",
+      "rentalType": "year",
+      "id": 6
+    }
+  ],
+  "serviceName": [
+    {
+      "Name": "Villa",
+      "id": 1
+    },
+    {
+      "Name": "House",
+      "id": 2
+    },
+    {
+      "Name": "Room",
+      "id": 3
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "cao",
+      "birthDay": "25/10/1988",
+      "gender": "nam",
+      "citizenId": "049099004724",
+      "numberPhone": "0905451778",
+      "email": "vietcao2510@gmail.com",
+      "customerType": "dong",
+      "address": "tu ha"
+    }
+  ],
+  "contracs": {
+    "name": "typicode"
+  }
+}

@@ -14,7 +14,7 @@ function Menu(props) {
                                 <a href="index.html">Home</a>
                             </li>
                             <li>
-                                <a href="about.html">About us</a>
+                                <a href="about.html">Booking</a>
                             </li>
                             <li>
                                 <a href="#">Rooms</a>

@@ -11,7 +11,7 @@ function FooterElement(props) {
                                 <div className="footer_logo_container text-center">
                                     <div className="footer_logo">
                                         <a href="#" />
-                                        <div>The River</div>
+                                        <div>Furama</div>
                                         <div>since 1945</div>
                                     </div>
                                 </div>

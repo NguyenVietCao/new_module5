@@ -15,26 +15,50 @@ import MenuElement from './components/element/MenuElement';
 import HomeElement from './components/element/HomeElement';
 import Elements from './components/element/Elements';
 import FooterElement from './components/element/FooterElement';
+import CrSv from './components/crud/ServiceFurama/CrSv';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Form from './components/crud/Form';
+import FormCreateService from './components/crud/FormCreateService';
+import ContractList from './components/crud/contract/ContractList';
+import ServiceList from './components/crud/ServiceFurama/ServiceList';
+import CustomerList from './components/crud/Customer/CustomerList';
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
+      
       <Header></Header>
+      <HeaderElement></HeaderElement>
       <Menu></Menu>
       <Home></Home>
+
+      <Routes>
+
+        <Route path='/createService' element={<CrSv />} />
+        <Route path='/booking' element={<Booking></Booking>} />
+        <Route path='/contractList' element={<ContractList />} />
+        <Route path='/serviceList' element={<ServiceList />} />
+        <Route path='/customerList'element={<CustomerList/>}/>
+      </Routes>
+
       <Features></Features>
       <Gallery></Gallery>
       <About></About>
       <Testimonials></Testimonials>
-      <Booking></Booking>
+     
       <Blog></Blog>
-      <Footer></Footer>
-      <HeaderElement></HeaderElement>
+      
       <MenuElement></MenuElement>
       <HomeElement></HomeElement>
       <Elements></Elements>
-      <FooterElement></FooterElement>
-    </>
+     
+    
+      {/* <FooterElement></FooterElement>  */}
+      <Footer></Footer>
+    <FormCreateService></FormCreateService>
+    </BrowserRouter>
+
+    // <CrSv/>
   );
 }
 

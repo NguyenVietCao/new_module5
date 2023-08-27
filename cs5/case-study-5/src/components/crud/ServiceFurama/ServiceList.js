@@ -3,7 +3,7 @@ import {
   getListService,
   addService,
   deleteService,
-} from "../service/ServiceSever";
+} from "../../service/ServiceSever";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -14,7 +14,6 @@ function ServiceList() {
   const [service, setService] = useState([]);
 
   // const [newService, setNewService] = useState("");
-
   const getListServices = async () => {
     const data = await getListService();
     console.log(data);

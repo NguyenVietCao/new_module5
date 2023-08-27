@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link, } from 'react-router-dom';
 
 function HeaderElement(props) {
     return (
@@ -15,7 +16,7 @@ function HeaderElement(props) {
                                     <a href="index.html">Home</a>
                                 </li>
                                 <li>
-                                    <a href="about.html">About us</a>
+                                    <a href="#"><Link to={'/booking'}>Booking</Link></a>
                                 </li>
                                 <li>
                                     <a href="#">Rooms</a>
@@ -24,7 +25,13 @@ function HeaderElement(props) {
                                     <a href="blog.html">Blog</a>
                                 </li>
                                 <li>
-                                    <a href="contact.html">Contact</a>
+                                    <a href="#"><Link to={'/contractList'}>Contract</Link></a>
+                                </li>
+                                <li>
+                                    <a href="#"><Link to={'/customerList'}>Customer</Link></a>
+                                </li>
+                                <li>
+                                    <a href="#"><Link to={'/serviceList'}>Service</Link></a>
                                 </li>
                             </ul>
                         </nav>
