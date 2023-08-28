@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Header from './components/Header';
 import Menu from './components/Menu';
@@ -14,17 +14,20 @@ import HeaderElement from './components/element/HeaderElement';
 import MenuElement from './components/element/MenuElement';
 import HomeElement from './components/element/HomeElement';
 import Elements from './components/element/Elements';
-import FooterElement from './components/element/FooterElement';
-import CrSv from './components/crud/ServiceFurama/CrSv';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Form from './components/crud/Form';
-import FormCreateService from './components/crud/FormCreateService';
 import ContractList from './components/crud/contract/ContractList';
 import ServiceList from './components/crud/ServiceFurama/ServiceList';
 import CustomerList from './components/crud/Customer/CustomerList';
+import CreateService from './components/crud/ServiceFurama/CreateService';
+import CreateCustomer from './components/crud/Customer/CreateCustomer';
+
 
 function App() {
   return (
+    <>  
+      <ToastContainer />
     <BrowserRouter>
       
       <Header></Header>
@@ -34,11 +37,13 @@ function App() {
 
       <Routes>
 
-        <Route path='/createService' element={<CrSv />} />
+        {/* <Route path='/createService' element={<CrSv />} /> */}
         <Route path='/booking' element={<Booking></Booking>} />
         <Route path='/contractList' element={<ContractList />} />
         <Route path='/serviceList' element={<ServiceList />} />
-        <Route path='/customerList'element={<CustomerList/>}/>
+        <Route path='/service/new' element={<CreateService/>}/>
+          <Route path='/customerList' element={<CustomerList />} />
+          <Route path='/customer/new' element={<CreateCustomer/> } />
       </Routes>
 
       <Features></Features>
@@ -55,10 +60,11 @@ function App() {
     
       {/* <FooterElement></FooterElement>  */}
       <Footer></Footer>
-    <FormCreateService></FormCreateService>
+   
     </BrowserRouter>
 
-    // <CrSv/>
+   
+    </>
   );
 }
 

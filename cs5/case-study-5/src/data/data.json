@@ -23,6 +23,14 @@
       "quantity": "6",
       "rentalType": "year",
       "id": 6
+    },
+    {
+      "serviceName": "Room",
+      "usableArea": "36",
+      "rentalFee": "40",
+      "quantity": "6",
+      "rentalType": "Month",
+      "id": 7
     }
   ],
   "serviceName": [
