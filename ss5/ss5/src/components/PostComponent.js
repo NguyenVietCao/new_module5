@@ -4,7 +4,7 @@ import { posts } from '../data/data';
 import { toast } from 'react-toastify';
 
 
-function PostDetailComponent(props) {
+function PostComponent(props) {
     const navigate = useNavigate();
     const [blogs, setBlogs] = useState(posts);
     const param = useParams();
@@ -88,4 +88,4 @@ function PostDetailComponent(props) {
     );
 }
 
-export default PostDetailComponent;
+export default PostComponent;

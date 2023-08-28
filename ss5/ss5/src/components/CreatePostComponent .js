@@ -8,6 +8,7 @@ import { posts } from '../data/data';
 
 function CreatePostComponent(props) {
     const navigate = useNavigate();
+    const date = new Date()
     return (
         <>
             <Formik
@@ -16,7 +17,7 @@ function CreatePostComponent(props) {
                     title: '',
                     slug: '',
                     category: '',
-                    updatedAt: ''
+                    updatedAt: date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
                 }}
 
                 validationSchema={Yup.object({
@@ -25,7 +26,8 @@ function CreatePostComponent(props) {
                         .min(3, "Name too short")
                         .matches(/^[a-z A-Z ]+$/, "Name invalid"),
                     slug: Yup.string()
-                        .min(18)
+                        .min(18),
+                    category:Yup.string().required('Is not empty')
                 })}
 
                 onSubmit={(values, { setSubmitting }) => {
@@ -72,11 +74,11 @@ function CreatePostComponent(props) {
 
                                 {/* updatedAt */}
 
-                                <div className='mb-3'>
+                                {/* <div className='mb-3'>
                                     <label htmlFor='updatedAt' className='form-label'>updatedAt</label>
                                     <Field name="updatedAt" className='form-control' type="text" id="updatedAt" />
                                     <ErrorMessage name="updatedAt" component='span' className="form-error" />
-                                </div>
+                                </div> */}
                                 {isSubmitting ?
                                     <FidgetSpinner
                                         visible={true}

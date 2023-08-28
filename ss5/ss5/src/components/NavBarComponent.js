@@ -30,7 +30,7 @@ function NavBarComponent(props) {
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">
-                      <span><Link to='/PostDetailComponent'>PostDetailComponent</Link></span>
+                      <span><Link to='/PostDetailComponent'>PostComponent</Link></span>
           </a>
         </li>
         <li className="nav-item dropdown">

@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import PostDetailComponent from './components/PostDetailComponent';
+import PostComponent from './components/PostComponent';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBarComponent from './components/NavBarComponent';
 import CreatePostComponent from './components/CreatePostComponent ';
@@ -15,7 +15,7 @@ function App() {
         
         <NavBarComponent />
         <Routes>
-          <Route path='/PostDetailComponent' element={<PostDetailComponent />} />
+          <Route path='/PostDetailComponent' element={<PostComponent />} />
           <Route path="/create" element={<CreatePostComponent />} />
           <Route path='/edit/:id' element={ <EditPostComponent/>} />
         </Routes>

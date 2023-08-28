@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { FidgetSpinner } from 'react-loader-spinner';
 import * as Yup from 'yup';
@@ -10,16 +10,17 @@ function EditPostComponent(props) {
     const navigate = useNavigate();
     const param = useParams();
     const [blogs, setBlogs] = useState();
-    const getFindById = posts.find((el) => el.id == param.id);
-    console.log(JSON.stringify(getFindById));
-    console.log(param.id)
+    let selectedPosts = posts.find((el) => el.id == param.id);
+
+    useEffect(() => { selectedPosts = posts.find((el) => el.id == param.id); }, [param])
+
 
     
     return (
         <>
             <Formik
                 initialValues={{
-                   ...getFindById
+                    ...selectedPosts
                 }}
 
                 validationSchema={Yup.object({
