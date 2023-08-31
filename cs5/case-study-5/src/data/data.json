@@ -17,20 +17,44 @@
       "rentalType": "month"
     },
     {
+      "id": 6,
       "serviceName": "House",
-      "usableArea": "200",
+      "usableArea": "1221",
+      "rentalFee": "efefe",
+      "quantity": "fefefe",
+      "rentalType": "year"
+    },
+    {
+      "id": 7,
+      "serviceName": "Villa",
+      "usableArea": "12",
       "rentalFee": "1200",
       "quantity": "6",
-      "rentalType": "year",
-      "id": 6
+      "rentalType": "moth"
+    },
+    {
+      "serviceName": "House",
+      "usableArea": "ccaaascc",
+      "rentalFee": "ascascac",
+      "quantity": "csac",
+      "rentalType": "ascascas",
+      "id": 8
     },
     {
       "serviceName": "Room",
-      "usableArea": "36",
-      "rentalFee": "40",
-      "quantity": "6",
-      "rentalType": "Month",
-      "id": 7
+      "usableArea": "ssdas",
+      "rentalFee": "sdasas",
+      "quantity": "sadsda",
+      "rentalType": "sdadadada",
+      "id": 9
+    },
+    {
+      "serviceName": "Villa",
+      "usableArea": "zczxzxc",
+      "rentalFee": "czxczxz",
+      "quantity": "xczxczx",
+      "rentalType": "czxczxczxc",
+      "id": 10
     }
   ],
   "serviceName": [
@@ -49,18 +73,180 @@
   ],
   "customers": [
     {
-      "id": 1,
-      "name": "cao",
-      "birthDay": "25/10/1988",
-      "gender": "nam",
-      "citizenId": "049099004724",
-      "numberPhone": "0905451778",
-      "email": "vietcao2510@gmail.com",
-      "customerType": "dong",
-      "address": "tu ha"
+      "name": "sdsdss",
+      "birthDay": "2023-08-10",
+      "gender": "fsfdsdf",
+      "citizenId": "sdfsdf",
+      "numberPhone": "dfsdf",
+      "email": "dfsdfsdf",
+      "customerType": "fsdfsd",
+      "address": "dsfsdf",
+      "id": 2
+    },
+    {
+      "name": "wefweffw",
+      "birthDay": "2023-08-10",
+      "gender": "efwefw",
+      "citizenId": "efwefwe",
+      "numberPhone": "fwefwe",
+      "email": "fwefwef",
+      "customerType": "wefwe",
+      "address": "efwef",
+      "id": 3
+    },
+    {
+      "name": "fwefwefwef",
+      "birthDay": "2023-08-17",
+      "gender": "fwefwefw",
+      "citizenId": "fwefw",
+      "numberPhone": "efwefwef",
+      "email": "fwefwef",
+      "customerType": "efwef",
+      "address": "fwefwef",
+      "id": 4
+    },
+    {
+      "name": "ddcsdsd",
+      "birthDay": "2023-08-25",
+      "gender": "dsdsdsd",
+      "citizenId": "sdsdsd",
+      "numberPhone": "rgergegre",
+      "email": "grrgrgr",
+      "customerType": "grrgrgg",
+      "address": "rgrgrgrg",
+      "id": 6
+    },
+    {
+      "name": "jdhsdhihdiiudsd",
+      "birthDay": "2023-08-11",
+      "gender": "sdsdcsdsd",
+      "citizenId": "sdsdsds",
+      "numberPhone": "dsdsdsd",
+      "email": "sdsdsdsds",
+      "customerType": "dsdsdsd",
+      "address": "sdsdsdsd",
+      "id": 8
+    },
+    {
+      "name": "fgdfgfdfg",
+      "birthDay": "2023-08-25",
+      "gender": "dfgdfdgdf",
+      "citizenId": "gdfgdfgdfg",
+      "numberPhone": "dfgdfgdfgdf",
+      "email": "gdgdfgdfgd",
+      "customerType": "fggdfgdfg",
+      "address": "dfgdfgdfgdfg",
+      "id": 9
+    },
+    {
+      "name": "sfsdsdf",
+      "birthDay": "2023-08-17",
+      "gender": "sdfsdfsdf",
+      "citizenId": "dfsdfd",
+      "numberPhone": "fsdfsdf",
+      "email": "sdfsdfsdf",
+      "customerType": "fsdfsdfsd",
+      "address": "fsdfsdf",
+      "id": 10
+    },
+    {
+      "name": "fsdfsdfsdf",
+      "birthDay": "2023-08-03",
+      "gender": "dfsdfs",
+      "citizenId": "dfsdf",
+      "numberPhone": "sdfsdf",
+      "email": "dfsdf",
+      "customerType": "dfsdf",
+      "address": "dfsdf",
+      "id": 11
+    },
+    {
+      "name": "ddddfd",
+      "birthDay": "2023-08-12",
+      "gender": "ddddd",
+      "citizenId": "dddd",
+      "numberPhone": "ddddd",
+      "email": "dddddd",
+      "customerType": "dddd",
+      "address": "dddddd",
+      "id": 12
+    },
+    {
+      "name": "2wwww",
+      "birthDay": "2023-08-10",
+      "gender": "wwww",
+      "citizenId": "wwww",
+      "numberPhone": "wwwww",
+      "email": "wwww",
+      "customerType": "wwww",
+      "address": "wwww",
+      "id": 13
     }
   ],
-  "contracs": {
-    "name": "typicode"
-  }
+  "contracts": [
+    {
+      "id": 1,
+      "contracCode": "RO-07",
+      "startDay": "2023-08-01",
+      "endDay": "2023-08-31",
+      "deposit": "400",
+      "payment": "2000"
+    },
+    {
+      "contracCode": "HO-03",
+      "startDay": "2023-08-11",
+      "endDay": "2023-08-27",
+      "deposit": "12000",
+      "payment": "3000",
+      "id": 3
+    },
+    {
+      "contracCode": "VL-03",
+      "startDay": "2023-08-10",
+      "endDay": "2023-08-19",
+      "deposit": "1200",
+      "payment": "3000",
+      "id": 4
+    },
+    {
+      "contracCode": "fdfdfdf",
+      "startDay": "2023-08-04",
+      "endDay": "2023-08-11",
+      "deposit": "dfdfdf",
+      "payment": "fdfdfdfdf",
+      "id": 5
+    },
+    {
+      "contracCode": "dsdsdsd",
+      "startDay": "2023-08-10",
+      "endDay": "2023-08-12",
+      "deposit": "sdsdsdsd",
+      "payment": "dsddsdsds",
+      "id": 6
+    },
+    {
+      "contracCode": "ddasaas",
+      "startDay": "2023-08-12",
+      "endDay": "2023-08-26",
+      "deposit": "aasasas",
+      "payment": "asasass",
+      "id": 7
+    },
+    {
+      "contracCode": "asscscs",
+      "startDay": "2023-08-04",
+      "endDay": "2023-08-27",
+      "deposit": "scasc",
+      "payment": "sascasc",
+      "id": 8
+    },
+    {
+      "contracCode": "dvddvv",
+      "startDay": "2023-08-01",
+      "endDay": "2023-09-10",
+      "deposit": "dvsdvsd",
+      "payment": "dvsdsdd",
+      "id": 9
+    }
+  ]
 }

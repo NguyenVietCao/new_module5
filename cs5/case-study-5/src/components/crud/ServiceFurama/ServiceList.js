@@ -3,19 +3,45 @@ import {
   getListService,
   addService,
   deleteService,
+  searchService,
+  paginationService,
 } from "../../service/ServiceSever";
 import { Link } from "react-router-dom";
-import axios from "axios";
+
 
 function ServiceList() {
-  // const services = useSelector((state) => state.services);
-  // console.log(services);
 
+  const [search, setSearch] = useState("");
   const [service, setService] = useState([]);
+  const [page, setPage] = useState(2);
 
-  // const [newService, setNewService] = useState("");
+  const handlePrevPage = () => {
+    const previousPages = page - 1;
+    if (page > 1) (
+      setPage(previousPages)
+    )
+  }
+
+
+  const handleNextPage = async() => {
+    const data = await getListService()
+    if (page < Math.ceil(data.length / 3)) {
+      const nextPage = page + 1;
+      setPage(nextPage);
+    }
+  }
+
+  const handleOnchange = (event) => {
+    setSearch(event.target.value);
+  }
+
+  const handleButtonSearch = async () => {
+    const data = await searchService(search);
+    setService(data);
+  }
+  
   const getListServices = async () => {
-    const data = await getListService();
+    const data = await paginationService(page,3);
     console.log(data);
     setService(data);
   };
@@ -26,23 +52,13 @@ function ServiceList() {
 
   useEffect(() => {
     getListServices();
-  }, []);
+  }, [page]);
 
-  // const handleInputChange = (e) => {
-  //   setNewService(e.target.value);
-  // };
-
-  // const handleSubmit = async() => {
-  //   await addService({
-  //     name: newService ,
-  //   });
-  //   setNewService('');
-  // };
 
   return (
     <div>
       <>
-   
+
         <style
           dangerouslySetInnerHTML={{
             __html:
@@ -54,12 +70,25 @@ function ServiceList() {
             <div className="table-wrapper">
               <div className="table-title">
                 <div className="row">
-                  <div className="col-sm-6">
+                  <div className="col-sm-4">
                     <h2>
                       Service <b>List</b>
                     </h2>
                   </div>
-                  <div className="col-sm-6">
+
+                  {/* search */}
+                  <div className='col-sm-4'>
+                    <div class="input-group">
+                      <div class="form-outline">
+                        <input type="search" id="form1" class="form-control" placeholder='Service Name' onChange={handleOnchange} />
+                      </div>
+                      <button type="button" class="btn btn-primary" onClick={handleButtonSearch}>
+                        Search
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="col-sm-4">
                     <a>
                       <Link
                         to={`/service/new`}
@@ -120,21 +149,21 @@ function ServiceList() {
                       <td>{service.quantity}</td>
                       <td>{service.rentalType}</td>
                       <td>
-                        <a
+                        {/* <a
                           href="#editEmployeeModal"
                           className="edit"
                           data-toggle="modal"
-                        >
-                          <Link to={`/service/edit/${service.id}`}>
-                            <i
-                              className="material-icons"
-                              data-toggle="tooltip"
-                              title="Edit"
-                            >
-                              
-                            </i>
-                          </Link>
-                        </a>
+                        > */}
+                        <Link to={`/service/edit/${service.id}`}>
+                          <i
+                            className="material-icons"
+                            data-toggle="tooltip"
+                            title="Edit"
+                          >
+                            
+                          </i>
+                        </Link>
+                        {/* </a> */}
 
                         <a
                           href="#deleteEmployeeModal"
@@ -157,7 +186,10 @@ function ServiceList() {
                   ))}
                 </tbody>
               </table>
-              
+
+              <button className="btn btn-group" onClick={handlePrevPage}>Previous</button>
+              <button className="btn btn-group" onClick={handleNextPage}>Next</button>
+
               <div className="clearfix">
                 <div className="hint-text">
                   Showing <b>5</b> out of <b>25</b> entries

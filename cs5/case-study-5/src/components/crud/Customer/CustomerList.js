@@ -1,26 +1,73 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getListCustomer } from '../../service/ServiceSever';
+import { getListCustomer, deleteCustomer, searchCustomerName, paginationCustomers } from '../../service/ServiceSever';
 
 
 function CustomerList(props) {
-  const [customer, setCustomer] = useState([]);
+  const [customers, setCustomers] = useState([]);
+  const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
 
 
+
+  // const { pagination, onPageChange } = props;
+  // const { _page, _limit, _totalRows } = pagination;
+  // const totalPages = Math.ceil(_totalRows/ _limit)
+  // const [pagination, setPagination] = useState({
+  //   _page: 1,
+  //   _limit: 3,
+  //   _totalRows: 1
+  // })
+  const handlePageChangePrev = () => {
+    const previousPages = page - 1
+    if (page > 1) {
+      setPage(previousPages)
+    }
+  };
+
+  const handlePageChangeNext = async () => { 
+    // const data  = paginationCustomers()
+    const data = await getListCustomer()
+    console.log(data.length);
+    console.log(page);
+    console.log(data)
+    console.log(Math.ceil((data.length) / 3));
+   
+    if (page < Math.ceil(data.length / 3)) {
+      const nextPage = page + 1;
+      setPage(nextPage);
+    }
+   
+  };
+
+
+  const handleOnchange = async (event) => {
+    setSearch(event.target.value);
+  }
+
+
+
+  const handleButtonSearch = async () => {
+    const data = await searchCustomerName(search);
+    console.log(data);
+    setCustomers(data);
+  }
 
   const showListCustomer = async () => {
-    const data = await getListCustomer();
-    setCustomer(data);
+    const data = await paginationCustomers(page, 3);
+    setCustomers(data);
+  }
+
+  const handleDelete = async (id) => {
+    await deleteCustomer(id)
   }
   useEffect(() => {
     showListCustomer()
-  }, [])
+  }, [page])
 
   return (
     <div>
       <>
-  
-     
         <style
           dangerouslySetInnerHTML={{
             __html:
@@ -32,12 +79,24 @@ function CustomerList(props) {
             <div className="table-wrapper">
               <div className="table-title">
                 <div className="row">
-                  <div className="col-sm-6">
+                  <div className="col-sm-4">
                     <h2>
                       Customer <b>List</b>
                     </h2>
                   </div>
-                  <div className="col-sm-6">
+                  {/* search */}
+                  <div className='col-sm-4'>
+                    <div class="input-group">
+                      <div class="form-outline">
+                        <input type="search" id="form1" class="form-control" placeholder='Customer Name' onChange={handleOnchange} />
+                      </div>
+                      <button type="button" class="btn btn-primary" onClick={handleButtonSearch}>
+                        Search
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="col-sm-4">
                     <button
 
                       className="btn btn-success"
@@ -59,29 +118,31 @@ function CustomerList(props) {
                 </div>
               </div>
 
-              {customer.map((customer) => (
-                <table className="table table-striped table-hover">
-                  <thead>
-                    <tr>
-                      <th>
-                        <span className="custom-checkbox">
-                          <input type="checkbox" id="selectAll" />
-                          <label htmlFor="selectAll" />
-                        </span>
-                        {/* Họ tên, Ngày sinh, Giới tính, Số CMND, Số Điện Thoại, Email, Loại khách, Địa chỉ  */}
-                      </th>
-                      <th> Name</th>
-                      <th>Birth Day</th>
-                      <th>Gender</th>
-                      <th>Citizen Id</th>
-                      <th>Phone Number</th>
-                      <th>Email</th>
-                      <th>Customer Type</th>
-                      <th>Address</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
+
+              <table className="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>
+                      <span className="custom-checkbox">
+                        <input type="checkbox" id="selectAll" />
+                        <label htmlFor="selectAll" />
+                      </span>
+                      {/* Họ tên, Ngày sinh, Giới tính, Số CMND, Số Điện Thoại, Email, Loại khách, Địa chỉ  */}
+                    </th>
+                    <th> Name</th>
+                    <th>Birth Day</th>
+                    <th>Gender</th>
+                    <th>Citizen Id</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Customer Type</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                {customers.map((customer) => (
                   <tbody>
+
                     <tr>
                       <td>
                         <span className="custom-checkbox">
@@ -107,11 +168,7 @@ function CustomerList(props) {
 
 
                       <td>
-                        <a
-                          href="#editEmployeeModal"
-                          className="edit"
-                          data-toggle="modal"
-                        >
+                        <Link to={`/customer/edit/${customer.id}`}>
                           <i
                             className="material-icons"
                             data-toggle="tooltip"
@@ -119,9 +176,12 @@ function CustomerList(props) {
                           >
                             
                           </i>
-                        </a>
+                        </Link>
                         <a
                           href="#deleteEmployeeModal"
+                          onClick={() => {
+                            handleDelete(customer.id);
+                          }}
                           className="delete"
                           data-toggle="modal"
                         >
@@ -138,54 +198,15 @@ function CustomerList(props) {
 
                     </tr>
 
-                  </tbody>
-                </table>
+                  </tbody>))}
+              </table>
+              {/* pagination */}
+              <div>
+                <button className='btn btn-group' onClick={handlePageChangePrev}>prev</button>
+                <button className='btn btn-group' onClick={handlePageChangeNext}>Next</button>
 
-
-              ))}
-
-
-
-              <div className="clearfix">
-                <div className="hint-text">
-                  Showing <b>5</b> out of <b>25</b> entries
-                </div>
-                <ul className="pagination">
-                  <li className="page-item disabled">
-                    <a >Previous</a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link">
-                      1
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link">
-                      2
-                    </a>
-                  </li>
-                  <li className="page-item active">
-                    <a className="page-link">
-                      3
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link">
-                      4
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link">
-                      5
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link">
-                      Next
-                    </a>
-                  </li>
-                </ul>
               </div>
+            
             </div>
           </div>
         </div>

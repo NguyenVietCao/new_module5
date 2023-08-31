@@ -22,48 +22,58 @@ import ServiceList from './components/crud/ServiceFurama/ServiceList';
 import CustomerList from './components/crud/Customer/CustomerList';
 import CreateService from './components/crud/ServiceFurama/CreateService';
 import CreateCustomer from './components/crud/Customer/CreateCustomer';
+import EditService from './components/crud/ServiceFurama/EditService';
+import EditCustomer from './components/crud/Customer/EditCustomer';
+import ContractCreate from './components/crud/contract/ContractCreate';
+import EditContract from './components/crud/contract/EditContract';
 
 
 function App() {
   return (
-    <>  
+    <>
       <ToastContainer />
-    <BrowserRouter>
-      
-      <Header></Header>
-      <HeaderElement></HeaderElement>
-      <Menu></Menu>
-      <Home></Home>
+      <BrowserRouter>
 
-      <Routes>
+        <Header></Header>
+        <HeaderElement></HeaderElement>
+        <Menu></Menu>
+        <Home></Home>
 
-        {/* <Route path='/createService' element={<CrSv />} /> */}
-        <Route path='/booking' element={<Booking></Booking>} />
-        <Route path='/contractList' element={<ContractList />} />
-        <Route path='/serviceList' element={<ServiceList />} />
-        <Route path='/service/new' element={<CreateService/>}/>
+        <Routes>
+
+          {/* <Route path='/createService' element={<CrSv />} /> */}
+          <Route path='/booking' element={<Booking></Booking>} />
+          <Route path='/contractList' element={<ContractList />} />
+          <Route path='/contract/new' element={<ContractCreate />} />
+          <Route path='/contract/edit/:id' element={<EditContract/> } />
+          {/* service */}
+          <Route path='/serviceList' element={<ServiceList />} />
+          <Route path='/service/new' element={<CreateService />} />
+          <Route path='/service/edit/:id' element={<EditService />} />
+          {/* customer */}
           <Route path='/customerList' element={<CustomerList />} />
-          <Route path='/customer/new' element={<CreateCustomer/> } />
-      </Routes>
+          <Route path='/customer/new' element={<CreateCustomer />} />
+          <Route path='/customer/edit/:id' element={<EditCustomer />} />
+        </Routes>
 
-      <Features></Features>
-      <Gallery></Gallery>
-      <About></About>
-      <Testimonials></Testimonials>
-     
-      <Blog></Blog>
-      
-      <MenuElement></MenuElement>
-      <HomeElement></HomeElement>
-      <Elements></Elements>
-     
-    
-      {/* <FooterElement></FooterElement>  */}
-      <Footer></Footer>
-   
-    </BrowserRouter>
+        <Features></Features>
+        <Gallery></Gallery>
+        <About></About>
+        <Testimonials></Testimonials>
 
-   
+        <Blog></Blog>
+
+        <MenuElement></MenuElement>
+        <HomeElement></HomeElement>
+        <Elements></Elements>
+
+
+        {/* <FooterElement></FooterElement>  */}
+        <Footer></Footer>
+
+      </BrowserRouter>
+
+
     </>
   );
 }
